@@ -1,0 +1,6 @@
+数据库等配置文件的路径：src/main/resources/application.yml
+要新建个数据库:recruit，然后在数据库中执行datasource.sql中的sql语句，数据库就会建成
+默认的账号，密码为：username:root
+项目启动方式：右键src/main/java/com.wdx中的ReceptionApplication.java然后Run as JavaApplication就可以启动
+然后在网页上输入网址：localhost:8081/index.html就可以看到主页	（该项目默认的启动8081端口)
+目前展示的只是一个初版，还有非常多的功能没有实现

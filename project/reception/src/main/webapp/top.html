@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <script src="./js/jquery-2.1.3.min.js"></script>
+</head>
+
+<body><div class="head">
+    <div class="head_area">
+        <div class="head_nav">
+            <ul>
+                <li><img src="images/nav_inc1.png" /><a href="index.html" target="_parent">首页</a></li>
+                <li><img src="images/nav_inc2.png" /><a href="#">成功案例</a></li>
+                <li><img src="images/nav_inc3.png" /><a href="#">关于简单招</a></li>
+            </ul>
+        </div>
+        <div class="head_logo"><span>简单聘</span></div>
+        <div class="head_user">
+            <a href="applicant/resume.html" target="_parent">毕业设计</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="top_main">
+    <div class="top_logo"><span style="font-family: 'Apple Braille'; color: #1E9CAD; height: 22px;width: 100px;display:block;margin-top:-5px">简单招聘</span></div>
+    <div class="top_instr">让你的工作变得简单</div>
+    <div class="top_tel"><span style="font-family: 'Apple Braille'; color: #1E9CAD; height: 38px; width: 255px;font-weight: 800;">联系我们</span></div>
+    <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+
+<script>
+    $(function(){
+        let getUser = function(){
+        let url = "./ApplicantLogoutServlet?type=find";
+        fetch(url)
+            .then( res => res.json())
+            .then((data)=>{
+                if(data == null || "" === data){
+                    $(".head_user").append(`
+                    <a href="login.jsp" target="_parent"><span class="type1">登录</span></a>
+                    <a href="register.html" target="_parent"><span class="type2">注册</span></a>
+                    `);
+                }else{
+                    $(".head_user").append(`
+                        <a href="index.html" target="_parent">退出</a>
+                    `);
+                }
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        };
+        getUser();
+    })
+</script>
+
+</body>
+</html>

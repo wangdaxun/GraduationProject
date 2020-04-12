@@ -1,0 +1,63 @@
+.topNav{
+  font-family: "Apple Braille";
+  font-size: 16px;
+  height: 62px;
+  line-height: 30px;
+  background: #202329;
+  color: #fff;
+  ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding: 0;
+  }
+
+  &__inner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+  }
+  &__left{
+    li{
+      display: block;
+      width: 50px;
+    }
+    li>span:hover{
+      color: #61dafb;
+      cursor: pointer;
+    }
+  }
+  &__right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    li{
+      display: block;
+      width: 100px;
+    }
+    li>span:hover{
+      color: #61dafb;
+      cursor: pointer;
+    }
+    &--user{
+      display: flex;
+      width: 150px;
+      margin: 14px;
+      justify-content: space-around;
+      span{
+        width: 50px;
+        display: inline-block;
+      }
+    }
+  }
+}
+.user__signUp,.user__LogIn{
+  border: 2px solid #61dafb;
+  border-radius: 10px;
+  span:hover{
+    color: #61dafb;
+    cursor: pointer;
+  }
+}
+
