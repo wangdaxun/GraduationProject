@@ -19,7 +19,7 @@ class SerPosition extends Component{
             </form>
           </div>
           <div className="SerPosition__hot">
-            <span>热门职位：</span>
+            <span style={{color:'#999'}}>热门职位：</span>
             <ul>
               <li><span>Java</span></li>
               <li><span>React</span></li>

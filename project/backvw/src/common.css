@@ -1,0 +1,11 @@
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    display: block;
+}
+.icon{
+    background-size: cover;
+    position: absolute;
+}

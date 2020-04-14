@@ -1,0 +1,39 @@
+.JobList{
+  width: 384px;
+  &__Card{
+    display: flex;
+    flex-direction: row;
+    padding: 8px 20px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+  }
+  ul{
+    display: flex;
+    flex-direction: row;
+  }
+  span{
+    display: inline-block;
+    text-align: center;
+    padding: 0 10px;
+  }
+}
+.Card{
+  &__Title{
+    color: #414a60;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  &__SortName{
+    color: #999;
+    font-size: 13px;
+  }
+  &__rightArrow{
+    background: url("./../../../img/Iconfont/rightArrow.svg") no-repeat;
+    right: 20px;
+    top: 0;
+    margin-top: 6px;
+    width: 29px;
+    height: 35px;
+  }
+}

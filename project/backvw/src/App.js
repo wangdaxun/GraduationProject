@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Home from "./routes/home/index";
+import './common.css';
 import './App.css';
 
 class App extends Component {
