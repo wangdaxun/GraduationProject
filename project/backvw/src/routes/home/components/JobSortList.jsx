@@ -1,24 +1,19 @@
 import React,{Component} from "react";
-import store from "./../../../store";
+import {connect} from "react-redux"
 import "./JobSortList.scss";
 class JobSortList extends Component{
-  constructor(props){
-    super(props);
-    this.state = store.getState();
-    console.log(this.state);
-  }
   render() {
-    const jobSortList = this.state.jobSortList;
+    const jobSortList = this.props.jobSortList;
     return(
         <div className="JobList">
           {
             jobSortList.map((job)=>(
-                <div className="JobList__Card">
+                <div className="JobList__Card" key={job.title}>
                   <span className="Card__Title">{job.title}</span>
                   <ul>
                     {
                       job.sortName.map((name)=>(
-                          <li className={"Card__SortName"}><span>{name}</span></li>
+                          <li key={name} className={"Card__SortName"}><span>{name}</span></li>
                       ))
                     }
                   </ul>
@@ -30,4 +25,15 @@ class JobSortList extends Component{
     )
   }
 }
-export default JobSortList;
+const mapStateToProps = (state) =>{
+  // 从state转到props
+  return {
+    jobSortList: state.jobSortList
+  }
+};
+const mapDispatchToProps = (dispatch)=>{
+  return {
+
+  }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(JobSortList);

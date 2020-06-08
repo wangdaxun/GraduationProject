@@ -1,0 +1,40 @@
+.jobTop{
+  padding: 24px 0;
+  background: url("./../../../img/Iconfont/detail-bg.jpg");
+  &__content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__left{
+    &--zhaopin{
+      color: rgba(255,255,255,.7);
+    }
+    &--name{
+      padding: 11px 0 8px;
+      letter-spacing: 5px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 32px;
+    }
+    &--area{
+      letter-spacing: 8px;
+      color: rgba(255,255,255,.7);
+    }
+  }
+  &__right{
+    &--btn{
+      height: 45px;
+      line-height: 45px;
+      color: #fff;
+      border: 1px #5dd5c8 solid;
+      background: #00d7c6;
+      text-align: center;
+      cursor: pointer;
+    }
+    &--resume{
+      margin-top: 30px;
+      color: #fff;
+    }
+  }
+}

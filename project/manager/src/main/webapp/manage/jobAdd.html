@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加工作</title>
+<link href="../css/manageadmin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+function validate(){
+	return true;
+}
+</script>
+</head>
+<body>
+<div class="place"> <span>位置：</span>
+  <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">添加企业</a></li>
+  </ul>
+</div>
+<div class="formbody">
+  <div class="usual">
+  <form name="frm" enctype="multipart/form-data" method="post" action="../JobAddServlet" onsubmit="return validate()">
+    <div class="tabson">
+      <ul class="forminfo">
+      	<li>
+          <label>工作名称<b>*</b></label>
+          <input name="jobName" type="text" id="jobName" class="dfinput" style="width:518px;"/>
+        </li>
+        <li>
+          <label>工作所属企业<b>*</b></label>
+          <input name="companyName" type="text" id="companyName" class="dfinput" style="width:518px;"/>
+        </li>
+        <li>
+          <label>招聘数<b>*</b></label>
+          <input name="jobHiringnum" type="text" id="jobHiringnum" class="dfinput" style="width:518px;"/>
+        </li>
+        <li>
+          <label>工作联系人<b>*</b></label>
+          <input name="jobLianxiren" type="text" id="jobLianxiren" class="dfinput" style="width:518px;"/>
+        </li>
+        <li>
+          <label>工作工资<b>*</b></label>
+          <input name="jobSalary" type="text" id="jobSalary" class="dfinput" style="width:518px;"/>
+        </li>
+        <li>
+          <label>工作地点<b>*</b></label>
+          <input name="jobArea" type="text" id="jobArea" class="dfinput" style="width:518px;"/>
+        </li>
+        <li>
+          <p>工作职位&nbsp;(不超过1000字)</p>
+          <textarea class="ckeditor" cols="50" id="jobZhiwei" name="jobZhiwei" rows="10"></textarea>
+        </li>
+        <li>
+          <p>工作职责&nbsp;(不超过1000字)</p>
+          <textarea class="ckeditor" cols="50" id="jobZhize" name="jobZhiwei" rows="10"></textarea>
+        </li>
+         <li>
+          <label>工作图片<b>*</b></label>
+          <input name="jobPic" id="jobPic" type="file" class="dfinput" style="width:300px; margin-right:5px;"/>
+        </li>
+        <li>  <label>&nbsp;</label>
+          <input name="" type="submit"  class="btn" value="添加"/>
+        </li>
+      </ul>
+    </div>
+  </form>
+  </div>
+</div>
+</body>
+</html>

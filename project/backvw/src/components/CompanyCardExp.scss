@@ -1,0 +1,74 @@
+.CompanyCardExp{
+  height: 180px;
+  width: 240px;
+  margin: 0 16px 16px 0;
+  background: #fff;
+  position: relative;
+  padding: 0 20px;
+  &__main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 120px;
+    border-bottom: dashed 1px #ededed;;
+  }
+  &__img{
+    text-align: center;
+    padding-top: 30px;
+    img{
+      height: 58px;
+      width: 58px;
+      vertical-align: middle;
+      border: 1px solid #f3f5fb;
+      border-radius: 9px;
+    }
+  }
+  &__text{
+    &--title{
+      h4{
+        text-align: right;
+        height: 22px;
+        line-height: 22px;
+        font-size: 16px;
+        font-weight: 400;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    &--content {
+      text-align: right;
+      height: 18px;
+      line-height: 18px;
+      color: #898e9d;
+      font-size: 12px;
+      white-space: nowrap;
+
+      span {
+        display: inline-block;
+      }
+    }
+  }
+  &__bottom{
+    height: 59px;
+    display: flex;
+    align-items: center;
+    color: #898e9d;
+    font-size: 14px;
+    span{
+      display: inline-block;
+    }
+    &--job{
+      color: #00c2b3;
+      padding: 0 2px;
+    }
+  }
+}
+.CompanyCardExp:hover{
+  .CompanyCardExp__text--title{
+    color: #00c2b3 !important;
+  }
+  span{
+    display: inline-block;
+  }
+}

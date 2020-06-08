@@ -1,0 +1,38 @@
+.companyTop{
+  background: #444c5f;
+  color: rgba(255,255,255,.7);
+  &__content{
+    padding: 29px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__left{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &--main{
+      padding-left: 30px;
+
+    }
+  }
+  &__right{
+    &--zhao{
+      text-align: center;
+      span{
+        display: block;
+        color: #fff;
+      }
+    }
+    &--resume{
+      margin-top: 30px;
+      color: #fff;
+    }
+  }
+  &__title{
+    font-size: 32px;
+    line-height: 48px;
+    padding: 0 0 3px 0;
+    color: #fff;
+  }
+}

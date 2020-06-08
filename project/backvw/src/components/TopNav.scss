@@ -16,7 +16,7 @@
   &__inner{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     text-align: center;
   }
   &__left{
@@ -32,7 +32,7 @@
   &__right{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     li{
       display: block;
       width: 100px;
@@ -51,6 +51,19 @@
         display: inline-block;
       }
     }
+    &--userIn{
+      display: flex;
+      width: 150px;
+      margin: 14px;
+      justify-content: space-around;
+      span{
+        width: 100px;
+        display: inline-block;
+      }
+      div{
+        margin-right: 20px;
+      }
+    }
   }
 }
 .user__signUp,.user__LogIn{
@@ -60,5 +73,11 @@
     color: #61dafb;
     cursor: pointer;
   }
+}
+.user__face,.user__face>img{
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  vertical-align: middle;
 }
 

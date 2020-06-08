@@ -1,0 +1,35 @@
+.jobLook{
+  width: 284px;
+  padding: 20px 30px;
+  height: fit-content;
+  margin: 16px;
+  background: #fff;
+  &__title{
+    height: 40px;
+    line-height: 40px;
+    color: #00c2b3;
+    border-bottom: 1px solid #ccc;
+  }
+  &__list{
+    ul li{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 80px;
+      line-height: 40px;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    &--right{
+      color: #fc6c38;
+      height: 80px;
+      line-height: 50px;
+    }
+  }
+}
+.name{
+  color: #414a60;
+}
+.company{
+  color: #8d92a1;
+}

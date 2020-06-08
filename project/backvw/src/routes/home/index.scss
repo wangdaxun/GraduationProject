@@ -1,0 +1,61 @@
+.home{
+  background: #f6f6f8;
+  &__mid{
+    background: #f6f6f8;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &--pic{
+      margin-left: 20px;
+    }
+  }
+  &__company{
+    margin-top: 30px;
+  }
+  &__job{
+    margin-top: 30px;
+    padding-bottom: 50px;
+  }
+}
+.mid__inner{
+  display: flex;
+  flex-direction: row;
+}
+.pic{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 750px;
+  a{
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  div{
+    height: 200px;
+  }
+  div:nth-child(odd){
+    width: 500px;
+  }
+  div:nth-child(even) {
+    padding-left: 5px;
+    width: 245px;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  &__first{
+    height: 226px;
+    div{
+      height: 226px;
+    }
+  }
+  &__second{
+    margin-top: 5px;
+    height: 130px;
+    div{
+      height: 112px;
+    }
+  }
+}

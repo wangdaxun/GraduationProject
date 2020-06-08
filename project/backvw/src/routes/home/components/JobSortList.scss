@@ -1,5 +1,7 @@
 .JobList{
-  width: 384px;
+  width: 385px;
+  background: #fff;
+  height: 340px;
   &__Card{
     display: flex;
     flex-direction: row;
@@ -27,6 +29,10 @@
   &__SortName{
     color: #999;
     font-size: 13px;
+    cursor: pointer;
+  }
+  &__SortName:hover{
+    color: #5dd5c8;
   }
   &__rightArrow{
     background: url("./../../../img/Iconfont/rightArrow.svg") no-repeat;

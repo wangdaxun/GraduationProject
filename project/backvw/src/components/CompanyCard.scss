@@ -1,0 +1,65 @@
+.CompanyCard{
+  height: 238px;
+  width: 280px;
+  margin: 0 16px 16px 0;
+  background: #fff;
+  position: relative;
+  &__img{
+    text-align: center;
+    padding-top: 30px;
+    img{
+      height: 58px;
+      width: 58px;
+      vertical-align: middle;
+      border: 1px solid #f3f5fb;
+      border-radius: 9px;
+    }
+  }
+  &__text{
+    &--title{
+      h4{
+        text-align: center;
+        height: 22px;
+        line-height: 22px;
+        font-size: 16px;
+        font-weight: 400;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    &--content {
+      text-align: center;
+      height: 18px;
+      line-height: 18px;
+      color: #898e9d;
+      font-size: 12px;
+      white-space: nowrap;
+
+      span {
+        display: inline-block;
+      }
+    }
+  }
+  &__btn {
+    margin: 30px auto 0 auto;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 70%;
+
+    a {
+      text-decoration: none;
+      color: #898e9d;
+    }
+
+    a:hover {
+      color: #61dafb;
+    }
+  }
+}
+.CompanyCard:hover{
+  .CompanyCard__text--title{
+    color: #61dafb !important;
+  }
+}

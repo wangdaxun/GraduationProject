@@ -1,0 +1,22 @@
+server:
+  port: 8082
+#mysql数据库连接信息
+
+#配置mybatis的信息
+#spring集成Mybatis环境
+mybatis:
+  #pojo别名扫描包
+  type-aliases-package: com.wdx.backstage.domain
+  mapper-locations: classpath:mapper/*Mapper.xml
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///recruit?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true

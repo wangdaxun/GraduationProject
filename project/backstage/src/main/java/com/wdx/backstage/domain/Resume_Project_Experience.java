@@ -10,4 +10,5 @@ public class Resume_Project_Experience {
     private String project_period;
     private String job_title;
     private String job_desc;
+    private String job_company;
 }

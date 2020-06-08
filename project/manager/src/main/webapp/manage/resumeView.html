@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>简历详情</title>
+  <script src="../js/jquery-2.1.3.min.js"></script>
+<link href="../css/manageadmin.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="place"> <span>位置：</span>
+  <ul class="placeul">
+    <li><a href="../index.html">首页</a></li>
+    <li>简历详情</li>
+  </ul>
+</div>
+<div class="formbody">
+  <div class="usual">
+    <div class="tabson">
+      <ul class="forminfo">
+      	<li>
+          <label>真实姓名：</label><label style="width: 200px;"><b style="color: #000"></b></label>
+        </li>
+        <li>
+          <label>照片：</label><img src="../images/QST.jpg" width="100px" height="100px">
+        </li>
+        <li>
+          <label>性别：</label><label style="width: 200px;"><b style="color: #000"></b></label>
+        </li>
+        <li>
+          <label>出生日期：</label><label style="width: 200px;"><b style="color: #000"></b></label>
+        </li>
+        <li>
+          <label>当前所在地：</label><label style="width: 200px;"><b style="color: #000"></b></label>
+        </li>
+        <li>
+          <label>户口所在地：</label><label style="width: 200px;"><b style="color: #000"></b></label>
+        </li>
+        <li>
+          <label>手机号：</label><label style="width: 200px;"><b style="color: #000"></b></label>
+        </li>
+        <li>
+          <label>邮箱：</label><label style="width: 200px;"><b style="color: #000"></b></label>
+        </li>
+        <li>
+          <label>求职意向：</label><label style="width: 200px;"><b style="color: #000"></b></label>
+        </li>
+        <li>
+          <label>工作经验：</label><label style="width: 200px;"><b style="color: #000"></b></label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script>
+  $(function(){
+    let getData = function(){
+      const str = location.href.substr(location.href.lastIndexOf("=")+1,location.href.length);
+      $.ajax({
+        type: "post",
+        url: "../ResumeServlet",
+        dataType: "json",
+        data: {type: 'select', resumeId:str},
+        success: function(resume){
+          console.log(resume);
+          let text = $("b");
+          text.eq(0).html(resume.realName);
+          text.eq(1).html(resume.gender);
+          text.eq(2).html(resume.birthday);
+          text.eq(3).html(resume.currentLoc);
+          text.eq(4).html(resume.residentLoc);
+          text.eq(5).html(resume.telephone);
+          text.eq(6).html(resume.email);
+          text.eq(7).html(resume.jobIntension);
+          text.eq(8).html(resume.jobExpeience);
+        },
+        error: function(){
+          console.log("失败");
+        }
+
+      })
+    };
+    getData();
+  })
+</script>
+</body>
+</html>

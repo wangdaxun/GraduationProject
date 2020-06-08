@@ -9,3 +9,47 @@ li{
     background-size: cover;
     position: absolute;
 }
+.vlive{
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    vertical-align: middle;
+    background: #e0e0e0;
+    margin: 0 10px
+}
+.box-title::before{
+    content: '';
+    display: inline-block;
+    vertical-align: 8px;
+    margin: 0 10px;
+    width: 50px;
+    height: 1px;
+    background: #d1d4db;
+}
+.box-title::after{
+    content: '';
+    display: inline-block;
+    vertical-align: 8px;
+    margin: 0 10px;
+    width: 50px;
+    height: 1px;
+    background: #d1d4db;
+}
+.btn{
+    display: inline-block;
+    min-width: 114px;
+    box-sizing: content-box;
+    height: 36px;
+    line-height: 36px;
+    border: 1px #5dd5c8 solid;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    background: #5dd5c8;
+    text-align: center;
+    cursor: pointer;
+}
+a{
+    text-decoration: none !important;
+    color: inherit;
+}

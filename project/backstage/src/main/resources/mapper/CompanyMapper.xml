@@ -2,7 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wdx.backstage.mapper.CompanyMapper">
-    <select id="queryAllCompany" resultType="company">
-        select * from tb_company;
-    </select>
+<!--    <resultMap id="companyList" type="company">-->
+<!--        <id property="company_id" column="company_id"></id>-->
+<!--        <result property="company_name" column="company_name"></result>-->
+<!--        <result property="company_area" column="company_area"></result>-->
+<!--        <result property="company_size" column="company_size"></result>-->
+<!--        <result property="company_type" column="company_type"></result>-->
+<!--        <result property="company_state" column="company_state"></result>-->
+<!--    </resultMap>-->
+<!--    <select id="queryAllCompany" resultMap="companyList">-->
+<!--        select company.*,comDesc.*  -->
+<!--        from tb_company company -->
+<!--        left join tb_company_desc comDesc on company.company_id=comDesc.company_id-->
+<!--    </select>-->
 </mapper>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>用户列表</title>
+  <script src="../js/jquery-2.1.3.min.js"></script>
+  <link href="../css/manageadmin.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="place"> <span>位置：</span>
+  <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">用户列表</a></li>
+  </ul>
+</div>
+<div class="rightinfo">
+  <div class="tools">
+    <ul class="toolbar">
+      <li class="click"><span><img src="../images/t01.png" /></span><a href="userAdd.html">添加</a></li>
+      <li class="click"><span><img src="../images/t02.png" /></span><a href="userAdd.html">修改</a></li>
+      <li><span><img src="../images/t03.png" /></span><a href="userDelete.html">删除</a></li>
+    </ul>
+    <iframe src="userSearch.html" scrolling="no" frameborder="0" width="400" height="42"></iframe>
+  </div>
+  <table class="imgtable">
+    <thead>
+      <tr>
+        <th ><input name="" type="checkbox" value="" checked="checked"/></th>
+        <th>用户登录名</th>
+        <th>用户真实姓名</th>
+        <th>用户Email</th>
+        <th>用户角色</th>
+        <th>用户状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody class="user_main">
+      <tr height="50px">
+        <td ><input name="" type="checkbox" value="" /></td>
+        <td>$USER_LOGNAME$</td>
+        <td>$USER_REALNAME$</td>
+        <td>$USER_EMAIL$</td>
+        <td>$USER_ROLE$</td>
+        <td>$USER_STATE$</td>
+        <td ><a class="tablelink">修改</a> &nbsp;&nbsp;<a href="#" class="tablelink"> 删除</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagin">
+    <div class="message">共<i class="blue total"></i>页，当前显示第&nbsp;<i class="blue now">&nbsp;</i>页</div>
+    <ul class="paginList">
+      <li class="paginItem"><a href="./userList.html?pageNo=1">首页</a></li>
+      <li class="paginItem"><a class="previous">上一页<span class="pagepre"></span></a></li>
+      <li class="paginItem"><a class="next">下一页<span class="pagenxt"></span></a></li>
+       <li class="paginItem"><a class="last">尾页</a></li>
+    </ul>
+  </div>
+</div>
+<script>
+  $(function () {
+    const UserLineTemp = $(".user_main").html();
+    let replaceUserTable = function(Data){
+      let trContent = UserLineTemp.replace("$USER_LOGNAME$",Data.user_logname)
+              .replace("$USER_REALNAME$",Data.user_realname)
+              .replace("$USER_EMAIL$",Data.user_email)
+              .replace("$USER_ROLE$",Data.user_role)
+              .replace("$USER_STATE$",Data.user_state);
+      let tr = $(trContent);
+      return tr;
+    };
+    function getData(){
+      const str = location.href.substr(location.href.lastIndexOf("=")+1,location.href.length);
+      $.ajax({
+        type: "post",
+        url: "../UserServlet",
+        data: {type: 'list',pageNo:str},
+        dataType: "json",
+        success: function(pageList){
+          console.log(pageList);
+            let NewTable = $(".user_main");
+            NewTable.html("");
+            let list = pageList.pageData;
+            list.map((user)=>{
+              if(user.user_role === 1){
+                user.user_role = "系统管理员";
+              }else if(user.user_role === 2){
+                user.user_role = "企业管理员";
+              }else{
+                user.user_role = "普通用户";
+              }
+              if(user.user_state === 1){
+                user.user_state = "启用";
+              }else{
+                user.user_state = "禁用";
+              }
+              let tr = replaceUserTable(user);
+              tr.find(".tablelink").eq(0).attr("href", "./userUpdate.html?userId="+user.user_id);
+              NewTable.append(tr);
+            });
+            // 判断总数
+            $(".total").html(pageList.totalPages);
+            // 判断当前第几页
+            $(".now").html(pageList.pageNo);
+            // 判断上一页，下一页
+            if(pageList.hasNext){
+              let nextNum = Number(pageList.pageNo) + 1;
+              $(".next").attr("href","./userList.html?pageNo="+nextNum).attr("disabled",false).css("color","#056dae");
+            }else{
+              $(".next").attr("disabled",true).css("color","#777");
+            }
+            if(pageList.hasPreviousPage){
+              let previousNum = Number(pageList.pageNo) - 1;
+              $(".previous").attr("href","./userList.html?pageNo="+previousNum).attr("disabled",false).css("color","#056dae");
+            }else{
+              $(".previous").attr("disabled",true).css("color","#777");
+            }
+            $(".last").attr("href","./userList.html?pageNo="+pageList.totalPages);
+        },
+        error: function() {
+          console.log("失败");
+        }
+      })
+    }
+    getData();
+  })
+</script>
+</body>
+</html>

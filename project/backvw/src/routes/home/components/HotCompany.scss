@@ -1,0 +1,33 @@
+.HotCompany{
+  background: #f6f6f8;
+  &__title{
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  &__Content{
+    ul{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+  &__search{
+    margin-top: 10px;
+    text-align: center;
+    a{
+      width: 382px;
+      font-size: 15px;
+      height: 32px;
+      line-height: 32px;
+      background: #f6f6f8;
+      color: #00c2b3;
+    }
+    a:hover{
+      background: #00c2b3;
+      color: #fff;
+    }
+
+  }
+
+}

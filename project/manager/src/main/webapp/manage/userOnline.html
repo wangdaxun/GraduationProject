@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>在线用户列表</title>
+  <script src="../js/jquery-2.1.3.min.js"></script>
+<link href="../css/manageadmin.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="place"> <span>位置：</span>
+  <ul class="placeul">
+    <li><a href="index.html">首页</a></li>
+    <li>在线用户列表</li>
+  </ul>
+</div>
+<div class="rightinfo">
+  <table class="imgtable">
+    <thead>
+      <tr>
+        <th>用户登录名</th>
+        <th>用户真实姓名</th>
+        <th>用户角色</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+<script>
+  $(function(){
+    let getUser = function(){
+      $.ajax({
+        type: "post",
+        url: "../UserServlet",
+        dataType: "json",
+        data: {type:"userSelect"},
+        success: function(user){
+          console.log(user);
+          for(key in user){
+            console.log(key);
+            let role;
+            if(user[key].user_role === 1){
+              role = "系统管理员";
+            }else if(user[key].user_role === 2){
+              role = "普通管理员";
+            }else{
+              role = "普通用户";
+            }
+            $("tbody").append(
+                    `<tr height="50px">
+        <td>${user[key].user_logname}</td>
+        <td>${user[key].user_realname}</td>
+        <td>${role}</td>
+        <td ><a href="#" class="tablelink">强制下线</a> </td>
+      </tr>`
+            )
+          }
+        },
+        error: function(){
+          console.log("失败");
+        }
+      })
+    };
+    getUser();
+  })
+</script>
+</body>
+</html>

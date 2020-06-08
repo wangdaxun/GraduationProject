@@ -1,0 +1,8 @@
+.jobIndex{
+  background: #f6f6f8;
+  &__main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

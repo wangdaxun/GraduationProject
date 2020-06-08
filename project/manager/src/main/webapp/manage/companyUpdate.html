@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>修改企业</title>
+    <link href="../css/manageadmin.css" rel="stylesheet" type="text/css" />
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        function validate(){
+            if(document.getElementById("companyName").value == ""){
+                alert("企业名称不能为空！");
+                document.getElementById("companyName").focus();
+                return false;
+            }
+            if(document.getElementById("companyArea").value == ""){
+                alert("企业所在地不能为空！");
+                document.getElementById("companyArea").focus();
+                return false;
+            }
+            if(document.getElementById("companySize").value == ""){
+                alert("企业规模不能为空！");
+                document.getElementById("companySize").focus();
+                return false;
+            }
+            if(document.getElementById("companyType").value == ""){
+                alert("企业性质不能为空！");
+                document.getElementById("companyType").focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<div class="place"> <span>位置：</span>
+    <ul class="placeul">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">修改企业</a></li>
+    </ul>
+</div>
+<div class="formbody">
+    <div class="usual">
+        <form name="frm" enctype="multipart/form-data" method="post" action="../CompanyServlet" onsubmit="return validate()">
+            <div class="tabson">
+                <ul class="forminfo">
+                    <li>
+                        <label>企业名称<b>*</b></label>
+                        <input name="companyName" type="text" id="companyName" class="dfinput" style="width:518px;"/>
+                    </li>
+                    <li>
+                        <label>企业所在地<b>*</b></label>
+                        <input name="companyArea" type="text" id="companyArea" class="dfinput" style="width:518px;"/>
+                    </li>
+                    <li>
+                        <label>企业规模<b>*</b></label>
+                        <input name="companySize" type="text" id="companySize" class="dfinput" style="width:518px;"/>
+                    </li>
+                    <li>
+                        <label>企业性质<b>*</b></label>
+                        <input name="companyType" type="text" id="companyType" class="dfinput" style="width:518px;"/>
+                    </li>
+                    <li>
+                        <p>企业简介&nbsp;(不超过1000字)</p>
+                        <textarea class="ckeditor" cols="50" id="companyDesc" name="companyDesc" rows="10"></textarea>
+                    </li>
+                    <li>
+                        <label>企业招聘状态</label>
+                        <div class="vocation">
+                            <select name="companyState" class="select3">
+                                <option value="1">招聘中</option>
+                                <option value="2">已暂停</option>
+                                <option value="3">已结束</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label>显示排序<b></b></label>
+                        <input name="companySort" type="text" class="dfinput" style="width:100px;"/>
+                    </li>
+                    <li>
+                        <label>宣传图片<b>*</b></label>
+                        <img class="company_img"/>
+                    </li>
+                    <li>
+                      <label>企业环境<b>*</b></label>
+                      <img class="company_vir"/>
+                  </li>
+                    <li>  <label>&nbsp;</label>
+                        <input type="hidden" name="companyId"/>
+                        <input type="hidden" name="type" value="update"/>
+                        <input name="" type="submit"  class="btn" value="添加"/>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(function () {
+        let getData = function(){
+            const str = location.href.substr(location.href.lastIndexOf("=")+1,location.href.length);
+            console.log(str);
+            $.ajax({
+                type: "post",
+                url: "../CompanyServlet",
+                dataType: "json",
+                data: {type:'updateSelect',companyId:str},
+                success: function (company) {
+                    $("input[name=companyId]").val(company.companyId);
+                    $("input[name=companyName]").val(company.companyName);
+                    $("input[name=companyArea]").val(company.companyArea);
+                    $("input[name=companySize]").val(company.companySize);
+                    $("input[name=companyType]").val(company.companyType);
+                    $(".ckeditor").html(company.companyDesc);
+                    $("input[name=companyState]").val(company.companyState);
+                    $("input[name=companySort]").val(company.companySort);
+                    $(".company_img").attr("src",company.companyPic);
+                    $(".company_vir").attr("src", company.companyEnvir);
+                },
+                error: function () {
+                    console.log("失败");
+                }
+            })
+        };
+        getData();
+    })
+</script>
+</body>
+</html>

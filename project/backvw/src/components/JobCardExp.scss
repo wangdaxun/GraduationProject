@@ -1,0 +1,112 @@
+.JobCardExp{
+  width: 884px;
+  margin: 16px;
+  background: #fff;
+  &__content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 16px 0 16px;
+    margin-bottom: 20px;
+  }
+  &__img{
+    display: flex;
+    margin-right: 20px;
+    margin-left: 30px;
+    &--pic {
+      width: 58px;
+      height: 58px;
+      align-self: center;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  &__text{
+    padding-top: 17px;
+    line-height: 35px;
+    color: #61687c;
+    &--price{
+      color: #fc6c38;
+    }
+    &--title{
+      color: #00c2b3;
+    }
+  }
+  &__company{
+    padding-top: 17px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 360px;
+    &--title{
+      line-height: 35px;
+      color: #00c2b3;
+    }
+    &--intro{
+      color: #777;
+    }
+  }
+  &__bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #f8f9fc;
+    padding: 0 16px 0 16px;
+    height: 40px;
+    color: #61687c;
+    font-size: 12px;
+    &--job{
+      ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: center;
+        margin-top: 5px;
+        height: 30px;
+        line-height: 30px;
+      }
+      li{
+        display: inline-block;
+        border: 1px solid #eee;
+        border-radius: 2px;
+        padding: 0 10px;
+        margin-right: 5px;
+      }
+    }
+    &--company{
+      ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: hidden;
+      }
+      li{
+        display: inline-block;
+        padding: 0 3px;
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+}
+.thePri{
+  display: inline-block;
+  margin-left: 20px;
+}
+.theName{
+  display: inline-block;
+  margin-left: 10px;
+  padding: 0 5px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+.theName:hover{
+  color: #00c2b3;
+}
+.JobCardExp:hover{
+  .JobCardExp__text--title{
+    cursor: pointer;
+  }
+}

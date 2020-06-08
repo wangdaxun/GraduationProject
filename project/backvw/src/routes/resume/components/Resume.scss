@@ -1,0 +1,153 @@
+.resume{
+  width: 900px;
+  background: #fff;
+  padding: 20px 40px;
+  color: #61687c;
+  textarea{
+    width: 728px;
+    height: 108px;
+    padding: 7px 15px;
+  }
+  &__editSave{
+    background-color: #5dd5c8;
+    border-color: #5dd5c8;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 9px 15px;
+  }
+  &__editBlk{
+    padding: 10px 5px;
+    span{
+      width: 100px;
+      display: inline-block;
+      text-align: left;
+      padding: 0 10px 0 0;
+    }
+    input{
+      margin-right: 20px;
+    }
+  }
+  &__add:before{
+    display: none;
+  }
+  &__add{
+    margin-left: 500px !important;
+    padding: 10px !important;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #32bdb1;
+    cursor: pointer;
+  }
+  &__top{
+    padding-top: 0;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f2f3f3;
+    &--name{
+      color: #000;
+      font-size: 20px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+      img{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: -24px;
+        left: 0;
+      }
+    }
+    &--edu{
+      span{
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        margin: 10px;
+      }
+    }
+    &--img{
+      margin-top: 3px;
+      display: inline-block;
+      position: relative;
+    }
+  }
+  &__personal{
+    padding: 30px 0;
+    border-bottom: 1px solid #f2f3f3;
+    &--content{
+      padding: 8px 0 8px 15px;
+    }
+  }
+
+  &__job{
+    padding: 30px 0;
+    border-bottom: 1px solid #f2f3f3;
+    span{
+      display: inline-block;
+      margin: 10px;
+    }
+  }
+  &__education{
+    padding: 30px 0;
+    border-bottom: 1px solid #f2f3f3;
+    &--content{
+      padding: 8px 0 8px 15px;
+    }
+  }
+
+  &__exp{
+    padding: 30px 0;
+    border-bottom: 1px solid #f2f3f3;
+    &--content{
+      padding: 8px 0 8px 15px;
+    }
+  }
+
+  &__title{
+    color: #000;
+    padding: 20px 0 30px 0;
+    span::before{
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 14px;
+      border-radius: 10px;
+      background-color: #53cac3;
+      left: 0;
+      top: 5px;
+    }
+    span{
+      position: relative;
+      display: inline-block;
+      padding-left: 40px;
+    }
+  }
+}
+.education, .exp{
+  &__name{
+    padding-bottom: 30px;
+    &--stu, &--title{
+      color: #414a60;
+      font-weight: 800;
+      font-size: 20px;
+    }
+    &--time{
+      color: #9fa3b0;
+      display: inline-block;
+      padding-left: 20px;
+      font-size: 14px;
+    }
+  }
+  &__sch, &__content{
+    span{
+      display: inline-block;
+    }
+    div{
+      padding: 10px 0;
+    }
+    &--jobExp{
+      span{
+        padding: 10px 20px 10px 0;
+      }
+    }
+  }
+}
